@@ -89,6 +89,7 @@
 	<script>
 		var cart = "";
 		var redCart = ""; // redundant cart
+		var objCart = [];
 	
 		$(document).ready(function() {
 		
@@ -122,12 +123,13 @@
 				// console.log(getFoodId($(selected).context.id));
 				// $("#mcf-show").attr("src", "../asset/img/foods/3.jpg");
 				addFood(getFoodId($(selected).context.id));
+				// objCart.push($(selected));
 			});
 			
 			$(".mcf-order-trash").on("ss-trashed", function (e, selected) {
 				// console.log(getFoodId($(selected).context.id));
-				console.log($(selected));
-				// removeFood(getFoodId($(selected).context.id));
+				// console.log($(selected.parent));
+				removeFood(getFoodId($(selected).context.id));
 			});
 			
 		});
@@ -237,7 +239,7 @@
 		<div class="block valign-wrapper" id="first-block">
 			<div class="center container" style="padding: auto;">
 				
-				<div class="mcf-menu">
+				<div class="mcf-menu" id="mcf-menu" name="mcf-menu">
 				    <div id="itemA"><img src="../asset/img/foods/A.jpg" width="100" height="100" /></div>
 				    <div id="itemB"><img src="../asset/img/foods/B.jpg" width="100" height="100" /></div>
 				    <div id="itemC"><img src="../asset/img/foods/C.jpg" width="100" height="100" /></div>
