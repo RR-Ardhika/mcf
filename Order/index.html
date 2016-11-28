@@ -25,61 +25,101 @@
 	
 	<!-- CSS -->
 	<style>
-		.container-ss {
+		.mcf-menu {
 			border: 1px dashed #CCC;
 			display: inline-block;
-			width: 200px;
-			height: 200px;
 			position: relative;
+			width: 120px;
+			min-height: 422px;
 		}
 
-		.container-ss > div {
+		.mcf-menu > div {
 			background: #AAA;
 			position: absolute;
 			height: 100px;
 			width: 100px;
 		}
 
-		.container-ss > .ss-placeholder-child {
+		.mcf-menu > .ss-placeholder-child {
 			background: transparent;
 			border: 1px dashed blue;
 		}
 		
-		.trash {
-			border: 1px dashed red;
+		.mcf-order {
+			display: inline-block;
+			position: relative;
+			width: 600px;
+			height: 318px;
+		}
+		
+		.mcf-order-show {
+			border: 1px dashed #CCC;
+			min-height: 300px;
+		}
+		
+		.mcf-order-droparea {
+			border: 1px dashed #CCC;
+			position: relative;
+			width: 79%;
+			min-height: 122px;
+			display: inline-block;
+		}
+		
+		.mcf-order-droparea > div {
+			background: #AAA;
+			position: absolute;
 			height: 100px;
-			padding: 20px;
-			text-align: center;
+			width: 100px;
+		}
+
+		.mcf-order-droparea > .ss-placeholder-child {
+			background: transparent;
+			border: 1px dashed blue;
+		}
+		
+		.mcf-order-trash {
+			border: 1px dashed red;
+			width: 20%;
+			min-height: 122px;
+			display: inline-block;
 		}
 	</style>
 
 	<!-- Javascript -->
-	<script type="application/javascript">
+	<script>
 		$(document).ready(function() {
-			$(".clones").shapeshift({
+			
+			// Init shapeshift
+			$(".mcf-menu").shapeshift({
 				dragClone: true,
-				enableCrossDrop: false
-			});
-			$(".droparea").shapeshift({
-				colWidth: 100
-			});
-			$(".trash").shapeshift({
-				colWidth: 100,
-				enableTrash: true,
+				enableCrossDrop: false,
+				autoHeight: false,
+				gutterY: 50,
 			});
 			
-			$containers = $(".container-ss");
-			$containers.on("ss-added", function (e, selected) {
-				console.log("This container:" + $(this));
-				console.log("Has rearranged this item:" + $(selected[0]));
-				console.log("Into this position:" + $(selected).index());
+			$(".mcf-order-droparea").shapeshift({
+				colWidth: 100,
+				autoHeight: false,
 			});
+			
+			$(".mcf-order-trash").shapeshift({
+				colWidth: 100,
+				enableTrash: true,
+				autoHeight: false,
+			});			
+			
+			// Events
+			$(".mcf-order-droparea").on("ss-added", function (e, selected) {
+				// console.log($(this));
+				console.log($(selected).context.id);
+				// console.log("Into this position:" + $(selected).index());
+			});
+			
+			$(".mcf-order-trash").on("ss-trashed", function (e, selected) {
+				console.log($(selected).context.id);
+			});
+			
 		});
-		
-		function tekan()
-		{
-			alert(1);
-		};
 	</script>
     
 </head>
@@ -109,26 +149,27 @@
 	</header>
 	<main>
 		<div class="block valign-wrapper" id="first-block">
-			<div class="container" style="padding: auto;">
+			<div class="center container" style="padding: auto;">
 				
-				<div class="container-ss clones">
-				    <div id="item1">1</div>
-				    <div id="item2">2</div>
-				    <div id="item3">3</div>
+				<div class="mcf-menu">
+				    <div id="item1"><img src="../asset/img/foods/1.jpg" width="100" height="100" /></div>
+				    <div id="item2"><img src="../asset/img/foods/2.jpg" width="100" height="100" /></div>
+				    <div id="item3"><img src="../asset/img/foods/3.jpg" width="100" height="100" /></div>
 				</div>
 
-				<div class="container-ss droparea">
-				</div>
-				<div class="container-ss trash">
-				</div>
-				
-				<div class="container-ss clones">
-				    <div id="item4">4</div>
-				    <div id="item5">5</div>
-				    <div id="item6">6</div>
+				<div class="mcf-order">					
+					<div class="mcf-order-show"></div>
+					<div class="mcf-order-item">
+						<div class="mcf-order-droparea"></div>
+						<div class="mcf-order-trash"></div>											
+					</div>
 				</div>
 				
-				<button onclick="tekan()">Click me</button>
+				<!-- <div class="mcf-menu">
+				    <div id="item4"><img src="../asset/img/foods/1.jpg" width="100" height="100" /></div>
+				    <div id="item5"><img src="../asset/img/foods/2.jpg" width="100" height="100" /></div>
+				    <div id="item6"><img src="../asset/img/foods/3.jpg" width="100" height="100" /></div>
+				</div> -->
 				
 			</div>
 		</div>
