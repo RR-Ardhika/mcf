@@ -1,0 +1,51 @@
+.block
+{
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+}
+#second-block .row/*,
+#second-block .row .col*/
+{
+	height: 100%;
+}
+#second-block .profile
+{
+	margin: 15px;
+	border-radius: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+.profile-picture
+{
+	border-radius: 100%;
+	width: 200px;
+	height: 200px;
+}
+#profile-memet
+{
+	background-image: url("../img/profile/memet-1.jpg");
+}
+#profile-chandra
+{
+	background-image: url("../img/profile/chandra-2.jpg");
+}
+#profile-kevin
+{
+	background-image: url("../img/profile/kevin-1.jpg");
+}
+#profile-putri
+{
+	background-image: url("../img/profile/putri-1.jpg");
+}
+#profile-tonaas
+{
+	background-image: url("../img/profile/tonaas-1.jpg");
+}
+#profile-ardhika
+{
+	background-image: url("../img/profile/ardhika-1.jpg");
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Custom Food</title>
+	<link rel="stylesheet" type="text/css" href="../asset/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../asset/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../asset/css/home.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src ="../asset/js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src ="../asset/js/materialize.min.js"></script>
+	<script type="text/javascript" src ="../asset/js/general.js"></script>
+	<script type="text/javascript" src ="../asset/js/home.js"></script>
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+	<!-- jQuery / jQuery UI -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+	<!-- jQuery Touch Punch - Enable Touch Drag and Drop -->
+	<script src="../core/vendor/jquery.touch-punch.min.js"></script>
+
+	<!-- jQuery.Shapeshift -->
+	<script src="../core/jquery.shapeshift.js"></script>
+	
+	<!-- CSS -->
+	<style>
+		.container-ss {
+			border: 1px dashed #CCC;
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			position: relative;
+		}
+
+		.container-ss > div {
+			background: #AAA;
+			position: absolute;
+			height: 100px;
+			width: 100px;
+		}
+
+		.container-ss > .ss-placeholder-child {
+			background: transparent;
+			border: 1px dashed blue;
+		}
+		
+		.trash {
+			border: 1px dashed red;
+			height: 100px;
+			padding: 20px;
+			text-align: center;
+		}
+	</style>
+
+	<!-- Javascript -->
+	<script type="application/javascript">
+		$(document).ready(function() {
+			$(".clones").shapeshift({
+				dragClone: true,
+				enableCrossDrop: false
+			});
+			$(".droparea").shapeshift({
+				colWidth: 100
+			});
+			$(".trash").shapeshift({
+				colWidth: 100,
+				enableTrash: true,
+			});
+			
+			$containers = $(".container-ss");
+			$containers.on("ss-added", function (e, selected) {
+				console.log("This container:" + $(this));
+				console.log("Has rearranged this item:" + $(selected[0]));
+				console.log("Into this position:" + $(selected).index());
+			});
+		});
+		
+		function tekan()
+		{
+			alert(1);
+		};
+	</script>
+    
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<div class="wrapper left" id="navbar-content-left">
+					<ul class="right hide-on-med-and-down">
+						<li><a href="#">Home</a></li>
+						<li><a href="../About/index.html">About Us</a></li>
+						<li><a href="../Location/index.html">Our Location</a></li>
+					</ul>
+				</div>
+				<div class="wrapper">
+					<a href="#" class="center brand-logo">Logo</a>
+				</div>
+				<div class="wrapper right" id="navbar-content-right">
+					<ul class="left hide-on-med-and-down">
+						<li><a href="collapsible.html">Showcase</a></li>
+						<li><a href="../Register/index.html">Register</a></li>
+						<li><a href="../Order/index.html">Order</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div class="block valign-wrapper" id="first-block">
+			<div class="container" style="padding: auto;">
+				
+				<div class="container-ss clones">
+				    <div id="item1">1</div>
+				    <div id="item2">2</div>
+				    <div id="item3">3</div>
+				</div>
+
+				<div class="container-ss droparea">
+				</div>
+				<div class="container-ss trash">
+				</div>
+				
+				<div class="container-ss clones">
+				    <div id="item4">4</div>
+				    <div id="item5">5</div>
+				    <div id="item6">6</div>
+				</div>
+				
+				<button onclick="tekan()">Click me</button>
+				
+			</div>
+		</div>
+	<footer>
+		
+	</footer>
+</body>
+</html>
