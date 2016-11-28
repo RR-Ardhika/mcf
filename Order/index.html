@@ -4,12 +4,12 @@
 	<title>My Custom Food</title>
 	<link rel="stylesheet" type="text/css" href="../asset/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="../asset/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../asset/css/home.css">
+	<link rel="stylesheet" type="text/css" href="../asset/css/order.css">
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src ="../asset/js/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src ="../asset/js/materialize.min.js"></script>
 	<script type="text/javascript" src ="../asset/js/general.js"></script>
-	<script type="text/javascript" src ="../asset/js/home.js"></script>
+	<script type="text/javascript" src ="../asset/js/order.js"></script>
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
@@ -87,7 +87,13 @@
 
 	<!-- Javascript -->
 	<script>
+		var cart = "";
+		var redCart = ""; // redundant cart
+	
 		$(document).ready(function() {
+		
+			// Init mcf-show to show blank
+			$("#mcf-show").removeAttr("src");
 			
 			// Init shapeshift
 			$(".mcf-menu").shapeshift({
@@ -106,20 +112,100 @@
 				colWidth: 100,
 				enableTrash: true,
 				autoHeight: false,
-			});			
+			});
 			
 			// Events
 			$(".mcf-order-droparea").on("ss-added", function (e, selected) {
 				// console.log($(this));
-				console.log($(selected).context.id);
+				// console.log($(selected).context.id);
 				// console.log("Into this position:" + $(selected).index());
+				// console.log(getFoodId($(selected).context.id));
+				// $("#mcf-show").attr("src", "../asset/img/foods/3.jpg");
+				addFood(getFoodId($(selected).context.id));
 			});
 			
 			$(".mcf-order-trash").on("ss-trashed", function (e, selected) {
-				console.log($(selected).context.id);
+				// console.log(getFoodId($(selected).context.id));
+				console.log($(selected));
+				// removeFood(getFoodId($(selected).context.id));
 			});
 			
 		});
+		
+		function getFoodId(food)
+		{
+			return food.replace('item', '');
+		}
+		
+		function sortFoodId(str)
+		{
+			var tmp = str.split("");
+			tmp = tmp.sort();
+			return tmp.toString().replace(/,/g, '');	
+		}
+		
+		function sortCart()
+		{
+			cart = sortFoodId(cart);
+		}
+		
+		function countCart(foodId)
+		{
+			var regex = new RegExp(foodId, "g");
+			return cart.match(regex).length;
+		}
+		
+		function sortRedCart()
+		{
+			redCart = sortFoodId(redCart);
+		}
+		
+		function countRedCart(foodId)
+		{			
+			var regex = new RegExp(foodId, "g");
+			return redCart.match(regex).length;
+		}
+		
+		function addFood(foodId)
+		{
+			if (!cart.includes(foodId)) {
+				cart = cart.concat(foodId);
+				sortCart();
+			}
+			redCart = redCart.concat(foodId);
+			sortRedCart();
+			debugCart();
+			showFood(cart);
+		}
+		
+		function removeFood(foodId)
+		{
+			if (countRedCart(foodId) > 1) {
+				redCart = redCart.replace(foodId, '');
+			} else if (countRedCart(foodId) == 1) {
+				redCart = redCart.replace(foodId, '');
+				cart = cart.replace(foodId, '');
+			} else {
+				return;
+			}
+			debugCart();
+			showFood(cart);
+		}
+		
+		function showFood(foodId)
+		{
+			if (foodId.length > 0)
+				$("#mcf-show").attr("src", "../asset/img/foods/" + foodId + ".jpg");
+			else
+				$("#mcf-show").removeAttr("src");
+		}
+		
+		function debugCart()
+		{
+			console.log(cart);
+			console.log(redCart);
+		}
+		
 	</script>
     
 </head>
@@ -152,13 +238,13 @@
 			<div class="center container" style="padding: auto;">
 				
 				<div class="mcf-menu">
-				    <div id="item1"><img src="../asset/img/foods/1.jpg" width="100" height="100" /></div>
-				    <div id="item2"><img src="../asset/img/foods/2.jpg" width="100" height="100" /></div>
-				    <div id="item3"><img src="../asset/img/foods/3.jpg" width="100" height="100" /></div>
+				    <div id="itemA"><img src="../asset/img/foods/A.jpg" width="100" height="100" /></div>
+				    <div id="itemB"><img src="../asset/img/foods/B.jpg" width="100" height="100" /></div>
+				    <div id="itemC"><img src="../asset/img/foods/C.jpg" width="100" height="100" /></div>
 				</div>
 
 				<div class="mcf-order">					
-					<div class="mcf-order-show"></div>
+					<div class="mcf-order-show"><img src="../asset/img/foods/A.jpg" width="598" height="290" id="mcf-show" name="mcf-show" /></div>
 					<div class="mcf-order-item">
 						<div class="mcf-order-droparea"></div>
 						<div class="mcf-order-trash"></div>											
@@ -166,9 +252,9 @@
 				</div>
 				
 				<!-- <div class="mcf-menu">
-				    <div id="item4"><img src="../asset/img/foods/1.jpg" width="100" height="100" /></div>
-				    <div id="item5"><img src="../asset/img/foods/2.jpg" width="100" height="100" /></div>
-				    <div id="item6"><img src="../asset/img/foods/3.jpg" width="100" height="100" /></div>
+				    <div id="itemD"><img src="../asset/img/foods/1.jpg" width="100" height="100" /></div>
+				    <div id="itemE"><img src="../asset/img/foods/2.jpg" width="100" height="100" /></div>
+				    <div id="itemF"><img src="../asset/img/foods/3.jpg" width="100" height="100" /></div>
 				</div> -->
 				
 			</div>
