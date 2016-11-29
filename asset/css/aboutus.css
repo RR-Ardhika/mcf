@@ -1,13 +1,9 @@
-.block
+html
 {
-	position: relative;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100%;
+	background: url('../img/background-aboutus.png') no-repeat center center fixed;
+	background-size: cover; 
 }
-#second-block .row/*,
-#second-block .row .col*/
+#second-block .row
 {
 	height: 100%;
 }
@@ -15,27 +11,28 @@
 {
 	margin: 15px;
 	border-radius: 100%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
 }
 .profile-picture
 {
 	border-radius: 100%;
 	width: 200px;
 	height: 200px;
+	margin: auto;
 }
 #profile-memet
 {
 	background-image: url("../img/profile/memet-1.jpg");
+	background-size: cover;
 }
 #profile-chandra
 {
 	background-image: url("../img/profile/chandra-2.jpg");
+	background-size: cover;
 }
 #profile-kevin
 {
-	background-image: url("../img/profile/kevin-1.jpg");
+	background-image: url("../img/profile/kevin-2.jpg");
+	background-size: cover;
 }
 #profile-putri
 {

@@ -1,18 +1,9 @@
-.block
+html
 {
-	position: relative;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100%;
+	background: url('../img/background.png') no-repeat center center fixed;
+	background-size: cover; 
 }
-#first-block
-{
-	background-image: url("http://www.look.com.ua/pic/201404/1920x1080/look.com.ua-99015.jpg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
+
 #first-block h3
 {
 	text-align: center;

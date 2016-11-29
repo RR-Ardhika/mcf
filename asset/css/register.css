@@ -1,4 +1,14 @@
+html
+{
+	background: url('../img/background-blur.png') no-repeat center center fixed;
+	background-size: cover; 
+}
 #registration-form
 {
-	height: 100vh;
+	background-color: rgba(138,0,0, 0.2);
+}
+#login-form
+{
+	margin: auto;
+	background-color: rgba(138,0,0, 0.2);
 }
