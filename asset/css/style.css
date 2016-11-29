@@ -37,7 +37,7 @@ nav ul a
 }
 .nav-wrapper .hide-on-med-and-down
 {
-	box-shadow : 0 4px 0 0 rgba(138,0,0,0.14),0 4px 0 0 rgba(138,0,0,0.12),0 5px 0 -2px rgba(138,0,0,0.2)
+	box-shadow : 0 4px 0 0 rgba(138,0,0,1),0 4px 0 0 rgba(138,0,0,0.12),0 5px 0 -2px rgba(138,0,0,0.2)
 }
 header nav .nav-wrapper .wrapper
 {
@@ -45,11 +45,6 @@ header nav .nav-wrapper .wrapper
 	width: 40%;
 }
 
-.btn
-{
-	background-color: rgb(138, 0, 0);
-	width: 100%;
-}
 .btn, .btn:focus
 {
 	background-color: rgb(138, 0, 0);
@@ -59,6 +54,7 @@ header nav .nav-wrapper .wrapper
 {
 	background-color: #560000;
 }
+
 /*Font*/
 /* Webfont: Lato-Black */@font-face {
     font-family: 'LatoWebBlack';
