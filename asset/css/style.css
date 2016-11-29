@@ -104,6 +104,10 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   background-color: #8A0000;
 }
 
+nav ul a:hover,
+nav ul li.active {
+    background-color: rgba(138,0,0,0.1);
+}
 
 /*Font*/
 /* Webfont: Lato-Black */@font-face {
