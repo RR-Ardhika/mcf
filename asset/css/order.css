@@ -1,19 +1,71 @@
-.block
-{
-	position: relative;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100%;
+html {
+	background: url('../img/background.png') no-repeat center center fixed;
+	background-size: cover; 
 }
-#first-block
-{
-	/*background-image: url("http://www.look.com.ua/pic/201404/1920x1080/look.com.ua-99015.jpg");*/
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
-#first-block h3
-{
+
+#first-block h3 {
 	text-align: center;
+}
+
+.container {
+	margin-top: 100px;
+}
+
+.mcf-menu {
+	border: 1px dashed #CCC;
+	display: inline-block;
+	position: relative;
+	width: 120px;
+	min-height: 422px;
+}
+
+.mcf-menu > div {
+	background: #AAA;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+}
+
+.mcf-menu > .ss-placeholder-child {
+	background: transparent;
+	border: 1px dashed blue;
+}
+
+.mcf-order {
+	display: inline-block;
+	position: relative;
+	width: 600px;
+	height: 318px;
+}
+
+.mcf-order-show {
+	border: 1px dashed #CCC;
+	min-height: 300px;
+}
+
+.mcf-order-droparea {
+	border: 1px dashed #CCC;
+	position: relative;
+	width: 79%;
+	min-height: 122px;
+	display: inline-block;
+}
+
+.mcf-order-droparea > div {
+	background: #AAA;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+}
+
+.mcf-order-droparea > .ss-placeholder-child {
+	background: transparent;
+	border: 1px dashed blue;
+}
+
+.mcf-order-trash {
+	border: 1px dashed red;
+	width: 20%;
+	min-height: 122px;
+	display: inline-block;
 }
