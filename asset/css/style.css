@@ -50,7 +50,15 @@ header nav .nav-wrapper .wrapper
 	background-color: rgb(138, 0, 0);
 	width: 100%;
 }
-
+.btn, .btn:focus
+{
+	background-color: rgb(138, 0, 0);
+	width: 100%;
+}
+.btn:hover
+{
+	background-color: #560000;
+}
 /*Font*/
 /* Webfont: Lato-Black */@font-face {
     font-family: 'LatoWebBlack';
