@@ -49,6 +49,7 @@ html {
 	width: 79%;
 	min-height: 122px;
 	display: inline-block;
+	background: url('../img/drop-food.png') no-repeat center center;
 }
 
 .mcf-order-droparea > div {
