@@ -1,0 +1,10 @@
+html
+{
+	background: url('../img/background-blur.png') no-repeat center center fixed;
+	background-size: cover; 
+}
+.block-makanan .card
+{
+	/*margin-left: 10%;*/
+	background-color: rgba(255,255,255, 0.2);
+}
